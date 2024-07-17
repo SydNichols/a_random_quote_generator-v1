@@ -37,7 +37,7 @@ let quotes = [
     quote: "If you love something, set it free. Unless it's a tiger.",
     source: 'Phil Dunphy (Ty Burrell)',
     citation: 'Modern Family; See You Next Fall',
-    tags: ['humor', 'love']
+    tags: ['humor', 'wisdom']
   }
 ]
 
@@ -114,6 +114,9 @@ printQuote = () => {
   if (randomQuote.year) {
     html += `<span class="year">${randomQuote.year}</span>`
   }  
+  if (randomQuote.tags) {
+    html += `<span style="font-size: .8rem"> ${randomQuote.tags}</span>`
+  }
   html += '</p>'
 
   let newColors = getRandomColor();
@@ -136,3 +139,7 @@ printQuote = () => {
 document
   .getElementById('load-quote')
   .addEventListener('click', printQuote, false)
+
+//including set interval function to run printQuote at intervals of 20 seconds. 
+
+  setInterval(printQuote, 20000);
